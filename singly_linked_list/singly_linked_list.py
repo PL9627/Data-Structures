@@ -46,14 +46,16 @@ class LinkedList:
             return None
 
         if self.head == self.tail:
-            current = self.head
+            current = self.tail
             self.head = None
             self.tail = None
             self.length = self.length - 1
             return current.value
         else:
-            current = self.tail
+            current = self.head
             while current.next != self.tail:
                 current = current.next
             self.tail = current
-            return current.value
+            self.tail.next
+            self.length = self.length - 1
+            return self.tail.value

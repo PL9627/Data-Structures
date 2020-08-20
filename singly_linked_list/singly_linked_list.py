@@ -42,7 +42,7 @@ class LinkedList:
             return current_head.value
 
     def remove_tail(self):
-        if self.head is None:
+        if self.tail is None:
             return None
 
         if self.head == self.tail:
@@ -52,10 +52,10 @@ class LinkedList:
             self.length = self.length - 1
             return current.value
         else:
-            current = self.head
-            while current.next != self.tail:
-                current = current.next
-            self.tail = current
-            self.tail.next
-            self.length = self.length - 1
-            return self.tail.value
+            current_node = self.head
+            while current_node.next != self.tail:
+                current_node = current_node.next
+            prev_node = current_node.next.value
+            current_node.next = None
+            self.tail = current_node
+            return prev_node

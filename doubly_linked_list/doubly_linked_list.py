@@ -27,7 +27,18 @@ class DoublyLinkedList:
     the old head node's previous pointer accordingly.
     """
     def add_to_head(self, value):
-        pass
+        if self.head is None:
+            new_node = ListNode(value, None)
+            new_node.prev = None
+            self.head = new_node
+            self.length += 1
+        else:
+            new_node = ListNode(value, None)
+            self.head.prev = new_node
+            new_node.next = self.head
+            self.head = new_node
+            new_node.prev = None
+            self.length += 1
         
     """
     Removes the List's current head node, making the
@@ -73,6 +84,7 @@ class DoublyLinkedList:
     """
     def delete(self, node):
         pass
+            
 
     """
     Finds and returns the maximum value of all the nodes 

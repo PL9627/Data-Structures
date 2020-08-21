@@ -55,7 +55,7 @@ class LinkedList:
             current_node = self.head
             while current_node.next != self.tail:
                 current_node = current_node.next
-            prev_node = current_node.next.value
-            current_node.next = None
+            current_tail = self.tail
             self.tail = current_node
-            return prev_node
+            self.length = self.length - 1
+            return current_tail.value

@@ -101,16 +101,7 @@ class DoublyLinkedList:
     in the List.
     """
     def get_max(self):
-        if self.head is None:
-            return None
-        current_max = self.head.value
-        current = self.head
-        while current:
-            if current_max < current.value:
-                current_max = current.value
-            current = current.next
-        return current_max
-        """ if self.length == 0:
+        if self.length == 0:
             return None
 
         if self.length == 1:
@@ -122,4 +113,4 @@ class DoublyLinkedList:
             if current_max < current_node.value:
                 current_max = current_node.value
             current_node = current_node.next
-        return current_max """
+        return current_max

@@ -17,7 +17,18 @@ class BSTNode:
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
+        if value >= self.value:
+            if self.right is None:
+                self.right = BSTNode(value)
+            else:
+                right_child = self.right
+                right_child.insert(value)
+        if value < self.value:
+            if self.left is None:
+                self.left = BSTNode(value)
+            else:
+                left_child = self.left
+                left_child.insert(value)
 
     # Return True if the tree contains the value
     # False if it does not
@@ -80,6 +91,6 @@ print("elegant methods")
 print("pre order")
 bst.pre_order_dft()
 print("in order")
-bst.in_order_dft()
+#bst.in_order_dft()
 print("post order")
 bst.post_order_dft()  

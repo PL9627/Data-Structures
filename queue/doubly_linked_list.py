@@ -73,9 +73,9 @@ class DoublyLinkedList:
             return old_head.value
         else:
             old_head = self.head
-            old_head.next = None
+            #old_head.next = None
             self.head = self.head.next
-            self.head.prev = None
+            #self.head.prev = None
             self.length -= 1
             return old_head.value
             

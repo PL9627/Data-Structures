@@ -20,6 +20,15 @@ class DoublyLinkedList:
 
     def __len__(self):
         return self.length
+
+    def __str__(self):
+        s = ""
+        cur_node = self.head
+        while cur_node:
+            s += f"{cur_node.value} -> "
+            cur_node = cur_node.next
+        s += "None"
+        return s
     
     """
     Wraps the given value in a ListNode and inserts it 
@@ -46,20 +55,19 @@ class DoublyLinkedList:
     Returns the value of the removed Node.
     """
     def remove_from_head(self):
-        if self.head is None:
-            return None
-
         if self.head == self.tail:
-            cur_head = self.head
+            old_head = self.head
             self.head = None
             self.tail = None
             self.length -= 1
-            return cur_head.value
+            return old_head.value
         else:
-            cur_head = self.head
-            self.head = cur_head.next
+            old_head = self.head
+            old_head.next = None
+            self.head = self.head.next
+            #self.head.prev = None
             self.length -= 1
-            return cur_head.value
+            return old_head.value
             
     """
     Wraps the given value in a ListNode and inserts it 
